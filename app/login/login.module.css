@@ -1,0 +1,82 @@
+/* Centra el bloque en la pantalla con padding responsivo */
+.login {
+    min-height: 80dvh;
+    display: grid;
+    place-items: center;
+    padding: clamp(16px, 2vw, 32px);
+  }
+  
+  /* Tarjeta contenedora */
+  .loginCard {
+    width: 100%;
+    max-width: 420px;
+    background: var(--card, #ffffff);
+    border: 1px solid var(--border, #e5e7eb);
+    border-radius: var(--radius, 12px);
+    box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+    transition: transform .2s ease, box-shadow .2s ease;
+  }
+  
+  .loginCard:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  }
+  
+  /* Título */
+  .loginTitle {
+    margin: 0;
+    padding: 16px 20px 0 20px;
+    font-size: clamp(1.125rem, 1.5vw, 1.25rem);
+    font-weight: 600;
+    color: var(--text, #1f2937);
+  }
+  
+  /* Cuerpo del formulario */
+  .loginForm {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;              /* espaciado entre hijos */
+    padding: 16px 20px 20px;
+  }
+  
+  /* Grupo de campo (label + input) */
+  .field {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+  
+  /* Opcional: afina el color del label sin afectar globales */
+  .field label {
+    font-size: 0.875rem;
+    color: var(--text-dim, #6b7280);
+  }
+  
+  /* Mejora focus dentro de la tarjeta sin tocar globales */
+  .loginCard :where(input, button, select, textarea) {
+    border-radius: var(--radius, 12px);
+  }
+  
+  .loginCard :where(input:focus, select:focus, textarea:focus) {
+    outline: none;
+    border-color: var(--accent, #6c63ff);
+    box-shadow: 0 0 0 3px color-mix(in oklab, var(--accent, #6c63ff) 25%, transparent);
+  }
+  
+  /* Acciones del formulario */
+  .actions {
+    display: flex;
+    gap: 12px;
+    justify-content: flex-end;
+    margin-top: 4px;
+  }
+  
+  /* Sutil animación de entrada */
+  .fadeInUp {
+    animation: fadeInUp .25s ease-out both;
+  }
+  @keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(4px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  
